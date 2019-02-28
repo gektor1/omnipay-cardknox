@@ -8,6 +8,8 @@ namespace Omnipay\Cardknox\Message;
 
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
 
+use Omnipay\Cardknox\BankAccount;
+
 abstract class AbstractRequest extends CommonAbstractRequest
 {
     /**
@@ -136,6 +138,8 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xShipState'] = $card->getShippingState();
             $data['xShipZip'] = $card->getShippingPostcode();
             $data['xShipCountry'] = $card->getShippingCountry();
+        } elseif ($bankAccount = $this->getBankAccount()) {
+            
         }
 
         return $data;
@@ -154,5 +158,21 @@ abstract class AbstractRequest extends CommonAbstractRequest
     public function getEndpoint()
     {
         return $this->getParameter('liveEndpoint');
+    }
+    
+    public function setBankAccount($value)
+    {
+        if ($value && !$value instanceof BankAccount) {
+            $value = new BankAccount($value);
+        }
+        return $this->setParameter('bankAccount', $value);
+    }
+    
+    /**
+     * 
+     * @return BankAccount
+     */
+    public function getBankAccount() {
+        return $this->getParameter('bankAccount');
     }
 }
