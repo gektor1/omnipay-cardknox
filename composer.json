@@ -1,5 +1,5 @@
 {
-    "name": "dlehren/omnipay-cardknox",
+    "name": "gektor1/omnipay-cardknox",
     "type": "library",
     "description": "Cardknox gateway for the Omnipay payment processing library",
     "keywords": [
@@ -10,12 +10,12 @@
         "pay",
         "payment"
     ],
-    "homepage": "https://github.com/dlehren/omnipay-cardknox",
+    "homepage": "https://github.com/gektor1/omnipay-cardknox",
     "license": "MIT",
     "authors": [
         {
-            "name": "Dovid Ehrentrei",
-            "email": "dovidleibe@gmail.com"
+            "name": "Dmitry Medvedev",
+            "email": "gektor1@gmail.com"
         }
     ],
     "autoload": {
