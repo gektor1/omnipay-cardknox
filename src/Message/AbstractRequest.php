@@ -125,6 +125,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
             $data['xBillPhone'] = $card->getBillingPhone();            
             $data['xFax'] = $this->getFax();
             $data['xEmail'] = $card->getEmail();
+            $data['xCustReceipt'] = true;
 
             // customer shipping details
             $data['xShipFirstName'] = $card->getShippingFirstName();
