@@ -26,6 +26,10 @@ class PurchaseRequest extends AuthorizeRequest {
             $data['xCardNum'] = $this->getCard()->getNumber();
             $data['xExp'] = $this->getCard()->getExpiryDate('my');
             $data['xCVV'] = $this->getCard()->getCvv();
+            
+            if ($this->getCard()->getPostcode()) {
+                $data['xZip'] = $this->getCard()->getPostcode();
+            }
         } elseif (!is_null($this->getBankAccount())) {
             $data['xRouting'] = $this->getBankAccount()->getRoutingNumber();
             $data['xAccount'] = $this->getBankAccount()->getAccountNumber();
